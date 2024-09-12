@@ -12,8 +12,7 @@ class TelaCadastro extends StatefulWidget {
 class _RegisterFormState extends State<TelaCadastro> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController telController = TextEditingController();
-  TextEditingController enderecoController = TextEditingController();
+  TextEditingController senhaController = TextEditingController();
   Gender _generoSelecionado = Gender.masculino;
   List<UserModel> users = [];
 
@@ -21,15 +20,13 @@ class _RegisterFormState extends State<TelaCadastro> {
     users.add(UserModel(
       name: nameController.text,
       email: emailController.text,
-      tel: telController.text,
-      endereco: enderecoController.text,
+      senha: senhaController.text,
       genero: _generoSelecionado,
     ));
 
     nameController.clear();
     emailController.clear();
-    telController.clear();
-    enderecoController.clear();
+    senhaController.clear();
   }
 
   @override
@@ -69,21 +66,10 @@ class _RegisterFormState extends State<TelaCadastro> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
-                keyboardType: TextInputType.number,
-                controller: telController,
+                controller: senhaController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Telefone:',
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: TextField(
-                controller: enderecoController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Endereço: ',
+                  labelText: 'senha:',
                 ),
               ),
             ),
